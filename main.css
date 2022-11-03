@@ -33,7 +33,6 @@ a {
 }
 
 #header {
-  line-height: 1.2em;
   grid-column: 1;
   grid-row: 1;
   position: sticky;
@@ -44,8 +43,15 @@ a {
 #word-mark {
   float: left;
   color: #fff;
-  padding-top: 10px;
   margin-left: 16px;
+}
+
+#contact {
+  float: right;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 8pt;
+  margin: 30px 30px 0px 0px;
 }
 
 #ruler {
@@ -185,7 +191,11 @@ a {
   grid-row: 1;
   border-left: .1px solid;
   border-color: #444;
-  padding: 30px;
+}
+
+#social-header h2 {
+  margin: 30px 0px 0px 30px;
+  color: #fff;
 }
 
 #social-content {
