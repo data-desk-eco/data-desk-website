@@ -11,12 +11,16 @@
 
 body {
   overflow: hidden;
-  font-size: 10pt;
-  color: #fff;
+  color: #ccc;
   background-color: #000;
   padding: 0px;
   margin: 0px;
   scroll-padding-top: 500px;
+  font-size: 12pt;
+}
+
+a {
+  color: #0ff;
 }
 
 #grid {
@@ -29,6 +33,7 @@ body {
 }
 
 #header {
+  line-height: 1.2em;
   grid-column: 1;
   grid-row: 1;
   position: sticky;
@@ -38,6 +43,7 @@ body {
 
 #word-mark {
   float: left;
+  color: #fff;
   padding-top: 10px;
   margin-left: 16px;
 }
@@ -95,7 +101,7 @@ body {
 }
 
 #textual {
-	grid-column: 1;
+  grid-column: 1;
   border-right: .1px solid;
   border-color: #666;
   overflow-y: scroll;
@@ -113,8 +119,16 @@ body {
   text-decoration: none;
 }
 
-#textual p {
+#textual p, ul {
   line-height: 1.75em;
+}
+
+#textual li {
+  margin-bottom: 12px;
+}
+
+#textual .post:last-of-type {
+  margin-bottom: 140px;
 }
 
 .vertical-gutter {
@@ -124,14 +138,13 @@ body {
 }
 
 #visual {
-	grid-column: 3;
+  grid-column: 3;
   overflow-y: scroll;
 }
 
 .sidebar {
   border-color: #444;
   font-size: 8pt;
-  padding: 30px;
 }
 
 .sidebar h1 {
@@ -167,13 +180,25 @@ body {
   border-color: #444;
 }
 
-#social {
+#social-header {
   grid-column: 2;
   grid-row: 1;
   border-left: .1px solid;
   border-color: #444;
+  padding: 30px;
+}
+
+#social-content {
+  grid-column: 2;
+  grid-row: 2;
+  width: 250px;
+  border-left: .1px solid;
+  border-color: #444;
+  margin-top: 20px;
+  padding: 0px 10px 0px 10px;
 }
 
 #visual img {
   width: 100%;
 }
+
