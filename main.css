@@ -28,6 +28,7 @@ em {
 div#main {
   grid-template-columns: 2fr 55px 2fr;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 div#main li {
@@ -60,7 +61,7 @@ div.nav a {
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;
-  /* This is hacky â€“ fix it */
+  /* This is hacky - fix it */
   margin-top: 2px;
 }
 
@@ -87,7 +88,7 @@ div.post:last-of-type {
 }
 
 div#contact {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
 }
 
@@ -97,7 +98,7 @@ div#logo {
 }
 
 div#portfolio {
-  grid-column: 6;
+  grid-column: 7;
   grid-row: 1;
 }
 
