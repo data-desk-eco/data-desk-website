@@ -20,6 +20,7 @@ body {
 
 div#main {
   grid-template-columns: 2fr 55px 2fr;
+  line-height: 1.5;
 }
 
 div#main li {
@@ -64,7 +65,7 @@ img {
 
 div.column {
   overflow: scroll;
-  line-height: 1.5;
+
   font-size: 11pt;
 }
 
@@ -73,7 +74,7 @@ div.post {
 }
 
 div.post:last-of-type {
-  padding-bottom: 300px;
+  padding-bottom: 200px;
 }
 
 div#contact {
@@ -94,8 +95,8 @@ div#portfolio {
 div#grid {
   display: grid;
   position: fixed;
-  grid-template-columns: 0.2fr 1.3fr 0.8fr 55px 0.8fr 1.3fr 0.2fr;
-  grid-template-rows: 100px 30px 400px;
+  grid-template-columns: 0.2fr 1.3fr 0.8fr 40px 0.8fr 1.3fr 0.2fr;
+  grid-template-rows: 50px 30px 400px;
   height: 100vh;
   margin-right: 30px;
 }
@@ -133,6 +134,11 @@ div#grid {
   }
 
 @media screen and (min-width: 800px) {
+div#grid {
+  grid-template-columns: 0.2fr 1.3fr 0.8fr 55px 0.8fr 1.3fr 0.2fr;
+  grid-template-rows: 100px 30px 400px;
+}
+
   div#current {
     display: block;
   }
