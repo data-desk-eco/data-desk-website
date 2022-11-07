@@ -310,7 +310,8 @@ div#main {
   div#visual {
     grid-column: 3;
     grid-row: 1;
-    padding: 30px;
+    padding-top: 30px;
+    margin: 0px 30px 30px 10px;
   }
 
   div.edge {
