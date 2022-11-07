@@ -36,7 +36,6 @@
         <a>Thinking</a>
       </div>
        <div id="main">
-        <!--<div id="textual" class="column">-->
           <div class="post text" id="text-1">
             <a href="#image-1"><h2><span class="title">Refined data on raw materials</span></h2></a>
             <p><b>The Data Desk</b> is an investigative consultancy that uses high-spec data and advanced computational techniques to shine a light on the companies and industries at the heart of the climate crises.</p>
@@ -76,15 +75,6 @@
             <img src="assets/deforestation.jpg" />
             <span class="caption">Deforestation in the state of Par&aacute;, Brazil</span>
           </div>
-        <!--</div>
-        <div id="gutter">
-          <div id="left-handle" class="handle"></div>
-          <div id="divider"></div>
-          <div id="right-handle" class="handle"></div>
-        </div>
-        <div id="visual" class="column">-->
-        <!--</div>-->
-      </div>
       </div>
     </div>
     <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
@@ -112,27 +102,33 @@
           });
       }
 
-      const main_content = document.querySelector("div#main").innerHTML;
+      const original_main = document.querySelector("div#main");
 
       function splitScreen() {
         if(window.innerWidth >= 800) {
 
           const text = [...document.querySelectorAll(".text")];
           const images = [...document.querySelectorAll(".image")];
-          var new_main_content = `
+          var main = document.createElement("div");
+          main.id = "main";
+          main.innerHTML = `
             <div id="textual" class="column">
               ${text.map(d => d.outerHTML).join("\n")}
-            </div>
-            <div id="gutter">
-              <div id="left-handle" class="handle"></div>
-              <div id="divider"></div>
-              <div id="right-handle" class="handle"></div>
             </div>
             <div id="visual" class="column">
               ${images.map(d => d.outerHTML).join("\n")}
             </div>`;
+          var gutter = document.createElement("div");
+          gutter.id = "gutter";
+          gutter.innerHTML = `
+            <div id="left-handle" class="handle"></div>
+            <div id="divider"></div>
+            <div id="right-handle" class="handle"></div>`;
+          
+	  document.querySelector("div#main").remove();
+          document.querySelector("div#grid").appendChild(main);
+          document.querySelector("div#main").appendChild(gutter);
 
-          document.querySelector("div#main").innerHTML = new_main_content;
           document.querySelector("div#textual").addEventListener("scroll", updateEdges);
           document.querySelector("div#visual").addEventListener("scroll", updateEdges);
           document
@@ -145,26 +141,25 @@
             columnGutters: [
               {
                 track: 1,
-                element: document.querySelector("div#gutter"),
+                element: document.querySelector("div#gutter")
               }
             ],
             minSize: 300
           });
-          updateEdges();
-
         } else {
-          document.querySelector("div#main").innerHTML = main_content;
-          updateEdges();
+          document.querySelector("div#main").remove();
+          document.querySelector("div#grid").appendChild(original_main);
         }
       }
      
       window.addEventListener("resize", () => {
-        updateEdges();
         splitScreen();
+        updateEdges();
       });
 
       window.onload = () => {
         splitScreen();
+        updateEdges();
       }
     </script>
   </body>
