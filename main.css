@@ -1,20 +1,31 @@
 :root {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   color: #fff;
   --grey: #bbb;
   --turq: #0ff;
-  --edge-width: 0.5px;
+  --edge-width: 0.2px;
   --border-width: 0.1px;
 }
 
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: "Inter var", sans-serif;
+    font-family: "Inter var";
   }
 }
 
 div#main {
   grid-template-columns: 2fr 55px 2fr;
+}
+
+div#main li {
+  padding-bottom: 20px;
+}
+
+div#main h2 {
+  font-size: 18pt;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  color: #fff;
 }
 
 body {
@@ -49,10 +60,6 @@ div#textual a:hover > h2 {
 
 img {
   width: 100%;
-}
-
-div.column li {
-  padding-bottom: 20px;
 }
 
 div.column {
@@ -230,7 +237,7 @@ div#grid {
 
 	div#gutter {
 	  display: grid;
-	  grid-template-columns: 50% var(--edge-width) 50%;
+	  grid-template-columns: 50% 0.5px 50%;
 	  grid-template-rows: 100%;
 	  grid-column: 2;
 	  grid-row: 1;
@@ -270,30 +277,23 @@ div#grid {
 	  padding: 30px;
 	}
 
-	div.column h2 {
-	  font-size: 18pt;
-	  padding-top: 30px;
-	  padding-bottom: 50px;
-	  color: #fff;
-	}
-
-	div.edge {
-	  background-color: var(--grey);
-	  height: var(--edge-width);
-	  z-index: -1;
-	  transform-origin: bottom left;
-	  display: none;
-	}
+  div.edge {
+    background-color: var(--grey);
+    height: var(--edge-width);
+    z-index: -1;
+    transform-origin: bottom left;
+    display: none;
+  }
 	
-div#main {
-  display: grid;
-  grid-template-columns: 2fr 55px 2fr;
-  grid-template-rows: 100vh;
-  grid-column: 2 / span 5;
-  grid-row: 3;
-  height: 10000px;
-  border-left: var(--border-width) solid var(--grey);
-  border-right: var(--border-width) solid var(--grey);
-}
+  div#main {
+    display: grid;
+    grid-template-columns: 2fr 55px 2fr;
+    grid-template-rows: 100vh;
+    grid-column: 2 / span 5;
+    grid-row: 3;
+    height: 10000px;
+    border-left: var(--border-width) solid var(--grey);
+    border-right: var(--border-width) solid var(--grey);
+  }
 
 }
