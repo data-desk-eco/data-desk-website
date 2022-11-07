@@ -102,13 +102,14 @@
           });
       }
 
-      const original_main = document.querySelector("div#main");
 
-      function splitScreen() {
+
+      function splitScreen(current_main) {
         if(window.innerWidth >= 800) {
 
           const text = [...document.querySelectorAll(".text")];
           const images = [...document.querySelectorAll(".image")];
+          
           var main = document.createElement("div");
           main.id = "main";
           main.innerHTML = `
@@ -131,6 +132,7 @@
 
           document.querySelector("div#textual").addEventListener("scroll", updateEdges);
           document.querySelector("div#visual").addEventListener("scroll", updateEdges);
+          document.addEventListener("mousemove", updateEdges);
           document
             .querySelectorAll("div.edge")
             .forEach(e => {
@@ -146,19 +148,22 @@
             ],
             minSize: 300
           });
+
         } else {
           document.querySelector("div#main").remove();
           document.querySelector("div#grid").appendChild(original_main);
         }
       }
+      
+      const original_main = document.querySelector("div#main");
      
       window.addEventListener("resize", () => {
-        splitScreen();
+        splitScreen(original_main);
         updateEdges();
       });
 
       window.onload = () => {
-        splitScreen();
+        splitScreen(original_main);
         updateEdges();
       }
     </script>
