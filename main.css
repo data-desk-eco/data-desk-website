@@ -32,6 +32,8 @@ div#main {
 }
 
 div#main li {
+  list-style-type: "> ";
+  padding-inline-start: 1ch;
   padding-bottom: 20px;
 }
 
