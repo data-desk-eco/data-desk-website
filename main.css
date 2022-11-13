@@ -5,8 +5,6 @@
   color: #fff;
   --grey: #1c1c1c;
   --line: #1c1c1c;
-  /* --turq: #9461C7; */
-  --edge-width: 1.4px;
   --edge-width: 1.4px;
 }
 
@@ -37,7 +35,8 @@ div#main li {
   padding-inline-start: 1ch;
   padding-bottom: 20px;
 }
-div#main h2{
+
+div#main h2 {
   font-size: 1.875rem;
   line-height: 1.0667em;
   font-weight: 600;
@@ -45,13 +44,13 @@ div#main h2{
   margin-bottom: 45px;
   color: #fff;
 }
-div#main h2 a{
+
+div#main h2 a {
   text-decoration: none;
 }
 
 div#main a {
   color: #fff;
-  /* text-decoration: none; */
 }
 
 div#main a:hover{
@@ -71,13 +70,10 @@ div.nav a {
   font-size: 14px;
 }
 
-div#portfolio a {
+div#portfolio a,
+div#thinking a {
   float: right;
 }
-div#thinking.nav a{
-  float: right;
-}
-
 
 div#contact a:hover,
 div#portfolio a:hover {
@@ -88,13 +84,15 @@ img {
   width: 100%;
 }
 
-div.column {
+div.column,
+div#main {
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow: scroll;
 }
 
-div.column::-webkit-scrollbar{
+div.column::-webkit-scrollbar,
+div#main::-webkit-scrollbar {
   display: none;
 }
 
@@ -102,9 +100,9 @@ div.post {
   padding-bottom: 30px;
 }
 
-/* div.post:last-of-type {
+div.post:last-of-type {
   padding-bottom: 200px;
-} */
+}
 
 div#contact {
   grid-column: 1;
@@ -166,6 +164,16 @@ div#main {
     grid-template-columns: 0.2fr 0.8fr 0.8fr 55px 0.8fr 0.8fr 0.2fr;
     grid-template-rows: 100px 30px 400px;
     margin: 40px;
+  }
+
+  div#screen {
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    height: 200px;
+    width: 100%;
+    z-index: -1;
+    background-color: #000;
   }
 
   div#current {
@@ -236,7 +244,6 @@ div#main {
     margin-left: 20px;
   }
 
-  /* Don't ask */
   div#feed p {
     margin: 0px 0px 6px 0px;
   }
@@ -294,6 +301,7 @@ div#main {
     grid-row: 1;
     padding-right: 124.5px;
     padding-left: 75px;
+    padding-bottom: 300px;
   }
 
   div#gutter {
@@ -340,15 +348,15 @@ div#main {
   div#visual {
     grid-column: 3;
     grid-row: 1;
-    padding: 30px 30px 30px 10px;
+    padding: 30px 30px 300px 10px;
   }
 
   div.edge {
     background-color: var(--line);
     height: var(--edge-width);
-    z-index: -1;
     transform-origin: bottom left;
     display: none;
+    z-index: -4;
   }
 
   div#main {
@@ -361,8 +369,9 @@ div#main {
     border-left: var(--edge-width) solid var(--line);
     border-right: var(--edge-width) solid var(--line);
   }
-  div#portfolio a, 
+
+  div#portfolio a,
   div#contact a{
-  margin: 0px 40px 0px 40px;
-}
+    margin: 0px 40px 0px 40px;
+  }
 }
