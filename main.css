@@ -216,9 +216,10 @@ div#main {
 
   div#chart svg g text {
     stroke-width: 0.2;
+    stroke: #fff;
   }
 
-  div#chart svg g:hover, div#chart svg g text {
+  div#chart:hover > svg g {
     stroke: #fff;
   }
 
@@ -296,7 +297,7 @@ div#main {
     grid-row: 1;
     padding-right: 124.5px;
     padding-left: 75px;
-    padding-bottom: 300px;
+    padding-bottom: 200px;
   }
 
   div#gutter {
@@ -343,7 +344,7 @@ div#main {
   div#visual {
     grid-column: 3;
     grid-row: 1;
-    padding: 30px 30px 300px 10px;
+    padding: 30px 30px 200px 10px;
   }
 
   div.edge {
