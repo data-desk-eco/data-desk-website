@@ -159,7 +159,7 @@ div#main {
   height: 100vh;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 980px) {
   div#grid {
     grid-template-columns: 0.2fr 0.8fr 0.8fr 55px 0.8fr 0.8fr 0.2fr;
     grid-template-rows: 100px 30px 400px;
