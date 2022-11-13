@@ -41,8 +41,8 @@ div#main h2{
   font-size: 1.875rem;
   line-height: 1.0667em;
   font-weight: 600;
-  margin-top: 110px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 30px;
   color: #fff;
 }
 div#main h2 a{
@@ -161,7 +161,7 @@ div#main {
   height: 100vh;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 800px) {
   div#grid {
     grid-template-columns: 0.2fr 0.8fr 0.8fr 55px 0.8fr 0.8fr 0.2fr;
     grid-template-rows: 100px 30px 400px;
@@ -192,6 +192,15 @@ div#main {
   div#portfolio {
     grid-column: 5 / span 1;
   }
+  
+  div#main h2{
+  font-size: 1.875rem;
+  line-height: 1.0667em;
+  font-weight: 600;
+  margin-top: 110px;
+  margin-bottom: 80px;
+  color: #fff;
+}
 
   div#chart {
     display: flex;
