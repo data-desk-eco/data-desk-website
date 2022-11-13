@@ -20,11 +20,6 @@ body {
   font-weight: 400;
 }
 
-em {
-  font-weight: 700;
-  font-style: normal;
-}
-
 div#main {
   grid-template-columns: 2fr 55px 2fr;
   overflow: hidden;
@@ -202,11 +197,16 @@ div#main {
   }
 
   div#chart {
-    display: flex;
-    justify-content: right;
+    margin-top: 5px;
+    justify-self: end;
     grid-column: 6;
     grid-row: 1;
-    padding: 0px;
+    width: 220px;
+  }
+  
+  div#chart svg {
+    background-color: #000;
+    font-size: 14px;
   }
 
   div#chart svg g {
@@ -215,12 +215,7 @@ div#main {
   }
 
   div#chart svg g text {
-    stroke: #fff;
     stroke-width: 0.2;
-  }
-
-  div#chart svg g text#title {
-    margin-bottom: 10px;
   }
 
   div#chart svg g:hover, div#chart svg g text {
