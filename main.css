@@ -35,8 +35,8 @@ div#main h2 {
   font-size: 1.875rem;
   line-height: 1.0667em;
   font-weight: 600;
-  margin-top: 90px;
-  margin-bottom: 45px;
+  margin-top: 6rem;
+  margin-bottom: 2.8rem;
   color: #fff;
 }
 
@@ -55,6 +55,10 @@ div#main a:hover{
 div#main h2:hover{
   text-decoration: underline;
 
+}
+
+div#main p {
+  margin: 0px 0px 1.4rem 0px;
 }
 
 div.nav a {
@@ -92,7 +96,7 @@ div#main::-webkit-scrollbar {
 }
 
 div.post {
-  padding-bottom: 30px;
+  padding-bottom: 0.7rem;
 }
 
 div.post:last-of-type {
@@ -288,8 +292,8 @@ div#main {
   }
 
   div#main h2{
-    margin-top: 120px;
-    margin-bottom: 65px;
+    margin-top: 8rem;
+    margin-bottom: 4.33rem;
   }
 
   div#textual {
