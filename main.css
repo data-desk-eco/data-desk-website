@@ -372,7 +372,8 @@ div#main {
 
   div#main:before {
     content: "";
-    width: 100%;
+    left: 0;
+    width: 100vw;
     height: 40px;
     position: fixed;
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
