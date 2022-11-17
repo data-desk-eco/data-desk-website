@@ -35,8 +35,8 @@ div#main h2 {
   font-size: 1.875rem;
   line-height: 1.0667em;
   font-weight: 600;
-  margin-top: 6rem;
-  margin-bottom: 2.8rem;
+  margin-top: 5rem;
+  margin-bottom: 2.1rem;
   color: #fff;
 }
 
@@ -291,9 +291,8 @@ div#main {
     border-right: var(--edge-width) solid var(--grey);
   }
 
-  div#main h2{
-    margin-top: 8rem;
-    margin-bottom: 4.33rem;
+  div#main h2 {
+    margin-top: 8.4rem;
   }
 
   div#textual {
