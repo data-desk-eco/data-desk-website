@@ -6,6 +6,7 @@
   --grey: #1c1c1c;
   --line: #1c1c1c;
   --edge-width: 1.4px;
+  --logo-width: 55px;
 }
 
 @supports (font-variation-settings: normal) {
@@ -18,10 +19,37 @@ body {
   background-color: #000;
   margin: 0px;
   font-weight: 400;
+  animation: fadeInAnimation ease 3s;
+}
+
+div#loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  z-index: 99;
+}
+
+img#loading-image {
+  z-index: 100;
+  width: var(--logo-width);
+  opacity: 1;  
+  animation: fade 2.5s infinite;
+}
+
+@keyframes fade {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
 }
 
 div#main {
-  grid-template-columns: 2fr 55px 2fr;
+  grid-template-columns: 2fr var(--logo-width) 2fr;
   overflow: hidden;
 }
 

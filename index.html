@@ -15,6 +15,9 @@
     <meta property="og:image" content="https://datadesk.eco/assets/logo_black_bg.png" />
   </head>
   <body>
+    <div id="loading">
+      <img id="loading-image" src="assets/logo.png" alt="Loading..." />
+    </div>
     <div id="grid">
       <div id="current" class="nav">
         <a>Current</a>
@@ -119,12 +122,12 @@
 
             var left = document.querySelector(`#text-${id} h2 span.title`).getBoundingClientRect().right;
             var right = document.querySelector(`#image-${id}`).getBoundingClientRect().left - 100;
-	    var bottom = document.querySelector(`#text-${id} h2 span.title`).getBoundingClientRect().bottom - 45;
-	    var top = document.querySelector(`#image-${id}`).getBoundingClientRect().top - 40;
-	    var width = right - left;
+	          var bottom = document.querySelector(`#text-${id} h2 span.title`).getBoundingClientRect().bottom - 45;
+	          var top = document.querySelector(`#image-${id}`).getBoundingClientRect().top - 40;
+	          var width = right - left;
             var height = top - bottom;
             var hypotenuse = Math.sqrt(width * width + height * height);
-	    var angle = (Math.atan(height / width) * 180 / Math.PI);
+	          var angle = (Math.atan(height / width) * 180 / Math.PI);
 
             document.querySelector(`#text-${id} div.edge`).style.position = "absolute";
             document.querySelector(`#text-${id} div.edge`).style.left = `${left}px`;
@@ -156,7 +159,7 @@
             <div id="divider"></div>
             <div id="right-handle" class="handle"></div>`;
           
-	  document.querySelector("div#main").remove();
+	        document.querySelector("div#main").remove();
           document.querySelector("div#grid").appendChild(main);
           document.querySelector("div#main").appendChild(gutter);
 
@@ -195,6 +198,7 @@
       window.onload = () => {
         splitScreen(original_main);
         updateEdges();
+        document.getElementById("loading").style.display = "none";
       }
     </script>
   </body>
