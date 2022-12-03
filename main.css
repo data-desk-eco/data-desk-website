@@ -383,4 +383,13 @@ div#main {
   div#contact a{
     margin: 0px 40px 0px 40px;
   }
+
+  h2#portfolio-header::before {
+    display: block;
+    content: " ";
+    margin-top: -8.5rem;
+    height: 8.5rem;
+    /*visibility: hidden;*/
+    pointer-events: none;
+  }
 }
