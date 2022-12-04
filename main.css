@@ -19,7 +19,6 @@ body {
   background-color: #000;
   margin: 0px;
   font-weight: 400;
-  animation: fadeInAnimation ease 3s;
 }
 
 div#loading {
@@ -49,7 +48,7 @@ img#loading-image {
 }
 
 div#main {
-  grid-template-columns: 2fr var(--logo-width) 2fr;
+  grid-template-columns: 2fr 55px 2fr;
   overflow: hidden;
 }
 
@@ -417,7 +416,6 @@ div#main {
     content: " ";
     margin-top: -8.5rem;
     height: 8.5rem;
-    /*visibility: hidden;*/
     pointer-events: none;
   }
 }
