@@ -82,6 +82,10 @@ div#main > p:nth-of-type(1) {
 
 img {
   float: left;
-  width: 70%;
-  margin-right: 30%;
+  width: 90%;
+  margin-right: 10%;
+}
+
+img + em {
+	font-size: 13px;
 }
