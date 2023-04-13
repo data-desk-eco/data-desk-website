@@ -72,6 +72,10 @@ div#main > h2+p {
   margin-top: 50px;
 }
 
+div#main > p:nth-of-type(1) {
+  margin-top: 40px;
+}
+
 img {
   width: 100%;
 }
