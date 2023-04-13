@@ -73,11 +73,7 @@ div#main > h2+p {
 }
 
 div#main p {
-  margin-bottom: 20px;
-}
-
-div#main p {
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
 
 div#main > p:nth-of-type(1) {
@@ -92,4 +88,5 @@ div#main img {
 
 div#main img + em {
 	font-size: 13px;
+  margin-top: 8px;
 }
