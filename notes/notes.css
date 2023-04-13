@@ -84,9 +84,9 @@ div#main img {
   float: left;
   width: 90%;
   margin-right: 10%;
+  margin-bottom: 10px;
 }
 
 div#main img + em {
 	font-size: 13px;
-  margin-top: 8px;
 }
