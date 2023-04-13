@@ -10,6 +10,8 @@
     </body>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="module">
+      url = "https://datadesk.eco/notes";
+
       function oauthSignIn(state) {
         var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
         var form = document.createElement("form");
@@ -18,7 +20,7 @@
 
         var params = {
           "client_id": "168417431856-hompdbahpmvrckl93ts0d049t3ccjmv6.apps.googleusercontent.com",
-          "redirect_uri": "https://datadesk.eco/notes",
+          "redirect_uri": url,
           "response_type": "token",
           "scope": "https://www.googleapis.com/auth/documents.readonly",
           "include_granted_scopes": "true",
@@ -65,6 +67,7 @@
                 .join("")
               )
             );
+        window.location.href = `${url}?id=${hash.get("state")}`;
       }
     </script>
 </html>
