@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>This is a test</title>
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="stylesheet" href="main.css" />
+    </head>
+    <body>
+        Testing!!!!
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module">
+      function oauthSignIn(state) {
+        var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
+        var form = document.createElement("form");
+        form.setAttribute("method", "GET");
+        form.setAttribute("action", oauth2Endpoint);
+
+        var params = {
+          "client_id": "168417431856-hompdbahpmvrckl93ts0d049t3ccjmv6.apps.googleusercontent.com",
+          "redirect_uri": "https://datadesk.eco/notes",
+          "response_type": "token",
+          "scope": "https://www.googleapis.com/auth/documents.readonly",
+          "include_granted_scopes": "true",
+          "state": state
+        };
+
+        for (var p in params) {
+          var input = document.createElement("input");
+          input.setAttribute("type", "hidden");
+          input.setAttribute("name", p);
+          input.setAttribute("value", params[p]);
+          form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      var hash = new Map(window.location.hash.slice(1).split("&").map(d => d.split("=")));
+
+      if(!hash.get("access_token")) {
+        oauthSignIn(params.get("id"));
+      } else {
+        await fetch(
+          `https://docs.googleapis.com/v1/documents/${hash.get("state")}`,
+          {
+            "headers": {
+              "Authorization": `Bearer ${hash.get("access_token")}`
+            }
+          }
+        )
+          .then(r => r.json())
+          .then(d =>
+            document.querySelector("body").innerHTML =
+              marked.parse(d
+                .body
+                .content
+                .filter(c => c.paragraph)
+                .map(d => d.paragraph.elements
+                  .map(e => e.textRun.content)
+                )
+                .flat()
+                .join("")
+              )
+            );
+      }
+    </script>
+</html>
