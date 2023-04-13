@@ -72,20 +72,24 @@ div#main > h2+p {
   margin-top: 45px;
 }
 
-div#main p, img {
+div#main p {
   margin-bottom: 20px;
+}
+
+div#main p {
+  margin-bottom: 10px;
 }
 
 div#main > p:nth-of-type(1) {
   margin-top: 38px;
 }
 
-img {
+div#main img {
   float: left;
   width: 90%;
   margin-right: 10%;
 }
 
-img + em {
+div#main img + em {
 	font-size: 13px;
 }
