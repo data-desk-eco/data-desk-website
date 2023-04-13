@@ -65,7 +65,7 @@ div#main h2 {
 }
 
 div#main > h2:nth-of-type(1) {
-  margin-top: -20px;
+  margin-top: -10px;
 }
 
 div#main > h2+p {
