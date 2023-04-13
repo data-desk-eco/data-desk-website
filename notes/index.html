@@ -55,6 +55,7 @@
     if(!hash.get("access_token")) {
       oauthSignIn(params.get("id"));
     } else {
+      window.history.pushState({}, "Data Desk notes", `/notes?id=${hash.get("state")}`);
       await fetch(
         `https://docs.googleapis.com/v1/documents/${hash.get("state")}`,
         {
