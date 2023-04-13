@@ -1,79 +1,85 @@
 <html>
-    <head>
-        <title>Data Desk notes</title>
-        <link rel="preconnect" href="https://rsms.me/" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-        <link rel="stylesheet" href="../main.css" />
-    </head>
-    <body>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script type="module">
-      const url = "https://datadesk.eco/notes";
+  <head>
+    <title>Data Desk notes</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="notes.css" />
+  </head>
+  <body>
+    <div id="main"></div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it-footnote@3.0.3/dist/markdown-it-footnote.min.js"></script>
+  <script type="module">
+    const url = "https://datadesk.eco/notes";
 
-      function oauthSignIn(state) {
-        var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
-        var form = document.createElement("form");
-        form.setAttribute("method", "GET");
-        form.setAttribute("action", oauth2Endpoint);
+    function oauthSignIn(state) {
+      var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
+      var form = document.createElement("form");
+      form.setAttribute("method", "GET");
+      form.setAttribute("action", oauth2Endpoint);
 
-        var params = {
-          "client_id": "168417431856-hompdbahpmvrckl93ts0d049t3ccjmv6.apps.googleusercontent.com",
-          "redirect_uri": url,
-          "response_type": "token",
-          "scope": "https://www.googleapis.com/auth/documents.readonly",
-          "include_granted_scopes": "true",
-          "state": state
-        };
+      var params = {
+        "client_id": "168417431856-hompdbahpmvrckl93ts0d049t3ccjmv6.apps.googleusercontent.com",
+        "redirect_uri": url,
+        "response_type": "token",
+        "scope": "https://www.googleapis.com/auth/documents.readonly",
+        "include_granted_scopes": "true",
+        "state": state
+      };
 
-        for (var p in params) {
-          var input = document.createElement("input");
-          input.setAttribute("type", "hidden");
-          input.setAttribute("name", p);
-          input.setAttribute("value", params[p]);
-          form.appendChild(input);
-        }
-
-        document.body.appendChild(form);
-        form.submit();
+      for (var p in params) {
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", p);
+        input.setAttribute("value", params[p]);
+        form.appendChild(input);
       }
 
-      var params = new URLSearchParams(window.location.search);
-      var hash = new Map(
-        window
-          .location
-          .hash
-          .slice(1)
-          .split("&")
-          .map(d => d.split("="))
-      );
+      document.body.appendChild(form);
+      form.submit();
+    }
 
-      if(!hash.get("access_token")) {
-        oauthSignIn(params.get("id"));
-      } else {
-        window.history.pushState({}, "Data Desk notes", `/notes?id=${hash.get("state")}`); 
-        await fetch(
-          `https://docs.googleapis.com/v1/documents/${hash.get("state")}`,
-          {
-            "headers": {
-              "Authorization": `Bearer ${hash.get("access_token")}`
-            }
+    var params = new URLSearchParams(window.location.search);
+    var hash = new Map(
+      window
+        .location
+        .hash
+        .slice(1)
+        .split("&")
+        .map(d => d.split("="))
+    );
+
+    var md = window.markdownit().use(markdownitFootnote);
+
+    if(!hash.get("access_token")) {
+      oauthSignIn(params.get("id"));
+    } else {
+      await fetch(
+        `https://docs.googleapis.com/v1/documents/${hash.get("state")}`,
+        {
+          "headers": {
+            "Authorization": `Bearer ${hash.get("access_token")}`
           }
-        )
-          .then(r => r.json())
-          .then(d =>
-            document.querySelector("body").innerHTML =
-              marked.parse(d
-                .body
-                .content
-                .filter(c => c.paragraph)
-                .map(d => d.paragraph.elements
-                  .map(e => e.textRun.content)
+        }
+      )
+        .then(r => r.json())
+        .then(d =>
+          document
+            .querySelector("#main")
+            .innerHTML =
+              md
+                .render(d
+                  .body
+                  .content
+                  .filter(c => c.paragraph)
+                  .map(d => d.paragraph.elements
+                    .map(e => e.textRun.content)
+                  )
+                  .flat()
+                  .join("")
                 )
-                .flat()
-                .join("")
-              )
-            );
-      }
-    </script>
+        );
+    }
+  </script>
 </html>

@@ -1,0 +1,73 @@
+:root {
+  font-family: "Inter";
+  font-size: 15px;
+  line-height: 1.4em;
+  color: #fff;
+  --grey: #1c1c1c;
+  --line: #1c1c1c;
+  --edge-width: 1.4px;
+  --logo-width: 55px;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var";
+  }
+}
+
+body {
+  background-color: #000;
+}
+
+div#main {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#main li {
+  list-style-type: "> ";
+  padding-inline-start: 1ch;
+  padding-bottom: 20px;
+}
+
+div#main h2 {
+  float: left;
+  font-size: 1.875rem;
+  line-height: 1.0667em;
+  font-weight: 600;
+  margin-bottom: 2.1rem;
+  color: #fff;
+}
+
+div#main h2 a {
+  text-decoration: none;
+}
+
+div#main a {
+  color: #fff;
+}
+
+div#main a:hover{
+  text-decoration: none;
+}
+
+div#main h2:hover{
+  text-decoration: underline;
+}
+
+div#main p, img, ul, ol, h1, h3, h4, h5, h6, pre {
+  margin-left: 40%;
+}
+
+div#main > h2+p {
+  margin-top: 50px;
+}
+
+div#main > h2:nth-of-type(1) {
+  margin-top: -10px;
+}
+
+img {
+  width: 100%;
+}
