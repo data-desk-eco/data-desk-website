@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="notes.css" />
   </head>
   <body>
+    <div id="header">
+      <img src="../assets/logo.png" alt="Data Desk" />
+      <h1>Arctic LNG 2 test</h1>
+    </div>
     <div id="main"></div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
@@ -53,7 +57,7 @@
     var md = window.markdownit().use(markdownitFootnote);
 
     if(!hash.get("access_token")) {
-      oauthSignIn(params.get("id"));
+      //oauthSignIn(params.get("id"));
     } else {
       window.history.pushState({}, "Data Desk notes", `/notes?id=${hash.get("state")}`);
       await fetch(
@@ -65,7 +69,7 @@
         }
       )
         .then(r => r.json())
-        .then(d =>
+        .then(d => {
           document
             .querySelector("#main")
             .innerHTML =
@@ -79,8 +83,12 @@
                   )
                   .flat()
                   .join("")
-                )
-        );
+                );
+          
+          document
+            .querySelector("#header > h1")
+            .innerHTML = d.title.toUpperCase();
+        });
     }
   </script>
 </html>
