@@ -27,18 +27,20 @@ div#header, div#main {
 
 div#header {
   width: 95%;
-  font-size: 2rem;
-  line-height: 47px;
-  font-weight: 600;
+  height: 40%;
 }
 
 div#header h1 {
   float: left;
   width: 35%;
+  font-size: 3rem;
+  line-height: 38px;
+  font-weight: 600;
 }
 
 div#header img {
   float: right;
+  margin-top: 30px;
   width: 40px;
   height: 40px;
 }
@@ -100,5 +102,5 @@ div#main img {
 }
 
 div#main img + em {
-	font-size: 13px;
+  font-size: 13px;
 }
