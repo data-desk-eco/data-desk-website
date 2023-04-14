@@ -28,11 +28,6 @@ div#header, div#main {
 div#header {
   display: flex;
   justify-content: right;
-  margin-top: 20px;
-}
-
-div#header {
-  float: left;
   width: 35%;
   font-size: 2rem;
   line-height: 0px;
