@@ -45,7 +45,7 @@
     }
 
     function oauthRevoke(access_token) {
-      var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
+      var oauth2Endpoint = "https://oauth2.googleapis.com/revoke";
       var form = document.createElement("form");
       form.setAttribute("method", "POST");
       form.setAttribute("action", oauth2Endpoint);
