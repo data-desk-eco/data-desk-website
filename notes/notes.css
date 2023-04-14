@@ -31,11 +31,12 @@ div#header {
   margin-top: 20px;
 }
 
-div#header h1 {
-  margin-left: 14px;
+div#header {
+  float: left;
+  width: 35%;
   font-size: 2rem;
-  font-weight: 600;
   line-height: 0px;
+  font-weight: 600;
 }
 
 div#header img {
@@ -70,11 +71,7 @@ div#main a:hover{
   text-decoration: none;
 }
 
-div#main h2:hover{
-  text-decoration: underline;
-}
-
-div#main p, ul, ol, h3, h4, h5, h6, pre {
+p, ul, ol, h3, h4, h5, h6, pre {
   margin-left: 40%;
 }
 
