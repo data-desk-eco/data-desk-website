@@ -57,7 +57,7 @@
     var md = window.markdownit().use(markdownitFootnote);
 
     if(!hash.get("access_token")) {
-      //oauthSignIn(params.get("id"));
+      oauthSignIn(params.get("id"));
     } else {
       window.history.pushState({}, "Data Desk notes", `/notes?id=${hash.get("state")}`);
       await fetch(
