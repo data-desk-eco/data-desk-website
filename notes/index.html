@@ -44,20 +44,6 @@
       form.submit();
     }
 
-    function oauthRevoke(access_token) {
-      var oauth2Endpoint = "https://oauth2.googleapis.com/revoke";
-      var form = document.createElement("form");
-      form.setAttribute("method", "POST");
-      form.setAttribute("action", oauth2Endpoint);
-      var input = document.createElement("input");
-      input.setAttribute("type", "hidden");
-      input.setAttribute("name", "token");
-      input.setAttribute("value", access_token);
-      form.appendChild(input);
-      document.body.appendChild(form);
-      form.submit();
-    }
-
     var params = new URLSearchParams(window.location.search);
     var hash = new Map(
       window
@@ -102,7 +88,6 @@
             .querySelector("#header > h1")
             .innerHTML = d.title.toUpperCase();
 
-          oauthRevoke(hash.get("access_token"));
           document.title = `Data Desk: ${d.title}`;
           window.history.pushState({}, "", `/notes?id=${hash.get("state")}`);
         });
