@@ -103,7 +103,8 @@
             .innerHTML = d.title.toUpperCase();
 
           oauthRevoke(hash.get("access_token"));
-          window.history.pushState({}, `Data Desk: ${d.title}`, `/notes?id=${hash.get("state")}`);
+          document.title = `Data Desk: ${d.title}`;
+          window.history.pushState({}, "", `/notes?id=${hash.get("state")}`);
         });
     }
   </script>
