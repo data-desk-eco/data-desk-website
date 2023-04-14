@@ -26,15 +26,19 @@ div#header, div#main {
 }
 
 div#header {
-  display: flex;
-  justify-content: right;
-  width: 35%;
+  width: 95%;
   font-size: 2rem;
-  line-height: 0px;
+  line-height: 47px;
   font-weight: 600;
 }
 
+div#header h1 {
+  float: left;
+  width: 35%;
+}
+
 div#header img {
+  float: right;
   width: 40px;
   height: 40px;
 }
