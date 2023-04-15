@@ -72,6 +72,10 @@
         .then(d => {
         
           document
+            .querySelector("#title")
+            .innerHTML = d.title.toUpperCase();
+        
+          document
             .querySelector("#date")
             .innerHTML =
               md
