@@ -7,7 +7,8 @@
   </head>
   <body>
     <div id="header">
-      <h1></h1>
+      <h1 id="title"></h1>
+      <span id="date"></span>
       <img src="../assets/logo.png" alt="Data Desk" />
     </div>
     <div id="main"></div>
@@ -69,6 +70,20 @@
       )
         .then(r => r.json())
         .then(d => {
+        
+          document
+            .querySelector("#date")
+            .innerHTML =
+              md
+                .render(d
+                  .body
+                  .content
+                  .filter(c => c.paragraph)[0]
+                  .elements
+                  .map(e => e.textRun.content)
+                  .join("")
+                );
+        
           document
             .querySelector("#main")
             .innerHTML =
@@ -77,16 +92,13 @@
                   .body
                   .content
                   .filter(c => c.paragraph)
+                  .slice(1)
                   .map(d => d.paragraph.elements
                     .map(e => e.textRun.content)
                   )
                   .flat()
                   .join("")
                 );
-          
-          document
-            .querySelector("#header > h1")
-            .innerHTML = d.title.toUpperCase();
 
           document.title = `Data Desk: ${d.title}`;
           window.history.pushState({}, "", `/notes?id=${hash.get("state")}`);
