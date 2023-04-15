@@ -46,11 +46,10 @@ div#header span {
 }
 
 div#header img {
-  position: absolute;
-  top: 5%;
-  right: 10%;
+  float: right;
   width: 55px;
   height: 55px;
+  margin-top: 0px;
 }
 
 div#main li {
