@@ -77,19 +77,16 @@
         
           document
             .querySelector("#date")
-            .innerHTML =
-              md
-                .render(d
-                  .body
-                  .content
-                  .filter(c => c.paragraph)
-                  .slice(0, 1)
-                  .map(d => d.paragraph.elements
-                    .map(e => e.textRun.content)
-                  )
-                  .flat()
-                  .join("")
-                );
+            .innerHTML = d
+              .body
+              .content
+              .filter(c => c.paragraph)
+              .slice(0, 1)
+              .map(d => d.paragraph.elements
+                .map(e => e.textRun.content)
+              )
+              .flat()
+              .join("");
         
           document
             .querySelector("#main")
