@@ -34,7 +34,6 @@ div#header {
 div#header h1 {
   float: left;
   width: 35%;
-  margin-top: 14px;
   font-size: 3rem;
   line-height: 38px;
   font-weight: 600;
@@ -47,8 +46,8 @@ div#header span {
 
 div#header img {
   position: absolute;
-  top: 20px;
-  right: 5%;
+  top: 5%;
+  right: 10%;
   width: 55px;
   height: 55px;
 }
