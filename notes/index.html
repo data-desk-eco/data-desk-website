@@ -45,24 +45,6 @@
       form.submit();
     }
 
-    function revokeAccess(accessToken) {
-      var revokeTokenEndpoint = "https://oauth2.googleapis.com/revoke";
-      var form = document.createElement("form");
-
-      form.setAttribute("method", "post");
-      form.setAttribute("action", revokeTokenEndpoint);
-
-      var tokenField = document.createElement("input");
-
-      tokenField.setAttribute("type", "hidden");
-      tokenField.setAttribute("name", "token");
-      tokenField.setAttribute("value", accessToken);
-
-      form.appendChild(tokenField);
-      document.body.appendChild(form);
-      form.submit();
-    }
-
     var params = new URLSearchParams(window.location.search);
     var hash = new Map(
       window
@@ -73,11 +55,12 @@
         .map(d => d.split("="))
     );
 
-    var md = window.markdownit().use(markdownitFootnote);
-
     if(!hash.get("access_token")) {
       oauthSignIn(params.get("id"));
     } else {
+
+      var md = window.markdownit().use(markdownitFootnote);
+      
       await fetch(
         `https://docs.googleapis.com/v1/documents/${hash.get("state")}`,
         {
