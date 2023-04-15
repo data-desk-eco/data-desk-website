@@ -42,14 +42,13 @@ div#header h1 {
 
 div#header span {
   float: left;
-  clear: both;
+  clear: left;
 }
 
 div#header img {
   float: right;
   width: 55px;
   height: 55px;
-  margin-top: 0px;
 }
 
 div#main li {
