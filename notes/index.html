@@ -122,7 +122,7 @@
                   .join("")
                 );
 
-          revokeAccess(hash.get("access_token"));
+          //revokeAccess(hash.get("access_token"));
 
           document.title = `Data Desk: ${d.title}`;
           window.history.pushState({}, "", `/notes?id=${hash.get("state")}`);
