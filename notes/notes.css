@@ -33,6 +33,7 @@ div#header {
 
 div#header h1 {
   float: left;
+  clear: left;
   width: 35%;
   font-size: 3rem;
   line-height: 38px;
@@ -41,7 +42,7 @@ div#header h1 {
 
 div#header span {
   float: left;
-  clear: left;
+  clear: both;
 }
 
 div#header img {
