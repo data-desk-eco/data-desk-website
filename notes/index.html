@@ -78,9 +78,12 @@
                 .render(d
                   .body
                   .content
-                  .filter(c => c.paragraph)[0]
-                  .elements
-                  .map(e => e.textRun.content)
+                  .filter(c => c.paragraph)
+                  .slice(0, 1)
+                  .map(d => d.paragraph.elements
+                    .map(e => e.textRun.content)
+                  )
+                  .flat()
                   .join("")
                 );
         
