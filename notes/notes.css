@@ -38,6 +38,11 @@ div#header h1 {
   font-weight: 600;
 }
 
+div#header span {
+  float: left;
+  clear: left;
+}
+
 div#header img {
   position: absolute;
   top: 20px;
