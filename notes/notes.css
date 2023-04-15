@@ -33,6 +33,7 @@ div#header {
 div#header h1 {
   float: left;
   width: 35%;
+  margin-top: 14px;
   font-size: 3rem;
   line-height: 38px;
   font-weight: 600;
