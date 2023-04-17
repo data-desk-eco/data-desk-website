@@ -85,7 +85,7 @@ div#main a:hover{
   text-decoration: none;
 }
 
-p, ul, ol, h3, h4, h5, h6, pre {
+p, ul, ol, h3, h4, h5, h6, pre, table {
   margin-left: 40%;
 }
 
