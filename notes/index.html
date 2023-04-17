@@ -59,7 +59,7 @@
       oauthSignIn(params.get("id"));
     } else {
 
-      var md = window.markdownit().use(markdownitFootnote);
+      var md = window.markdownit({ html: true }).use(markdownitFootnote);
       
       await fetch(
         `https://docs.googleapis.com/v1/documents/${hash.get("state")}`,
