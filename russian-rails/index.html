@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Russia runs on rail</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="about">
+      <div id="about-close">x</div>
+      <h1>Russia runs on rail</h1>
+      <p>This map shows the movement of oil products by rail in Russia in 2022, based on rail freight dispatch data from Russian Railways (RZD). It's powered by <a href="https://seafowl.io/">Seafowl</a>, an analytical database designed for modern, data-driven Web applications.</p>
+      <p>Use the controls (bottom-left) to explore the data. Refineries near departure stations are shown in yellow; military facilities near destination stations are shown in turquoise.</p>
+      <p>Data was provided by the <a href="https://acdatacollective.org/">Anti-Corruption Data Collective</a> (ACDC). If you're a journalist, researcher or policymaker and require more detailed information on Russian oil product flows during the war in Ukraine, contact ACDC.</p>
+      <div id="logos">
+        <a href="https://www.splitgraph.com/" target="_blank"><img src="assets/splitgraph-logo.svg" width=80 /></a>
+        <a href="https://acdatacollective.org/" target="_blank"><img src="assets/acdc-logo-white.png" width=80 /></a>
+      </div>
+    </div>
+    <table id="controls">
+      <tr class="control">
+        <td><label for="cargo">CARGO</label></td>
+        <td>
+          <select id="cargo" disabled>
+            <option value="ТОПЛИВО ДИЗЕЛЬНОЕ">Diesel</option>
+            <option selected value="КЕРОСИН">Jet fuel</option>
+            <option value="БЕНЗИН">Petrol/gasoline</option>
+            <option value="ПРОЧИЕ НЕФТЕПРОДУКТЫ СВЕТ">Other light petroleum products</option>
+            <option value="МАСЛА И СМАЗКИ МИНЕРАЛЬНЫ">Engine oil and other lubricants</option>
+          </select>
+        </td>
+      </tr>
+      <tr class="control">
+        <td><label for="variable">GROUP BY</label></td>
+        <td>
+          <input type="radio" name="variable" id="origin-station" value="Станция отправления РФ" />
+          <label for="origin_station">Origin station</label>
+          <input type="radio" name="variable" id="destination-station" value="Станция назначения РФ" />
+          <label for="destination_station">Destination station</label>
+        </tr>
+      </tr>
+      <tr class="control">
+        <td><label for="value">STATION</label></td>
+        <td><select id="value"></select></td>
+      </tr>
+      <tr class="control">
+        <td><label for="max_distance_km">SEARCH RADIUS (KM)</label></td>
+        <td><input type="range" id="max_distance_km" name="max_distance_km" min="1" max="100" value="3"></input></td>
+      </tr>
+      <tr class="control">
+        <td><a href="#" id="ask-gpt">AI ASSIST (GPT-4)</a></td>
+      </tr>
+      <tr class="control">
+        <td><a href="#" id="about-link">ABOUT THIS MAP</a></td>
+      </tr>
+    </table>
+    <div class="readout" id="refineries"></div>
+    <div class="readout" id="military"></div>
+    <div id="rationale"></div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
