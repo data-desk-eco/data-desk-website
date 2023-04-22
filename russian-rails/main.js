@@ -16,7 +16,7 @@ async function querySeafowl(sql, host = "https://russian-rails.fly.dev") {
   return response_t ? response_t.trim().split("\n").map(JSON.parse) : [];
 }
 
-async function askGPT() {
+/*async function askGPT() {
   const prompt = `
     It is now March 2023. On 24 February last year, the Russian Federation launched a full-scale invasion of eastern Ukraine involving ground, air and naval forces. With the aid of weapons and financial support from the West, Ukraine has pushed Russian forces back, but the conflict is still ongoing.
 
@@ -120,7 +120,7 @@ async function askGPT() {
     document.getElementById("rationale").innerHTML = "";
   });
 
-}
+}*/
 
 function updateReadout() {
   ["military", "refineries"].forEach(layer => {
@@ -460,7 +460,7 @@ document.getElementById("max_distance_km").addEventListener("change", async () =
   })
 );
 
-document.getElementById("ask-gpt").addEventListener("click", async () => { await askGPT() } );
+/*document.getElementById("ask-gpt").addEventListener("click", async () => { await askGPT() } );*/
 
 var cargo = document.getElementById("cargo").value;
 var variable = "Станция отправления РФ";
