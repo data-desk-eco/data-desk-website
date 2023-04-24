@@ -47,8 +47,11 @@ div#header {
   margin-top: 5%;
 }
 
-div#footer, section.footnotes {
+div#footer, hr.footnotes-sep {
   margin-top: 80px;
+}
+
+div#footer, section.footnotes {
   color: #bbb;
   font-size: 12;
   line-height: 1.3;
