@@ -52,7 +52,7 @@ div#main {
   overflow: hidden;
 }
 
-div#main li {
+div#main ul > li {
   list-style-type: "> ";
   padding-inline-start: 1ch;
   padding-bottom: 20px;
