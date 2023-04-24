@@ -33,7 +33,7 @@ body {
 
 @media screen and (min-width: 1201px) {
   div#header, div#main, div#footer {
-    width: 65%;
+    width: 800px;
   }
 }
 
