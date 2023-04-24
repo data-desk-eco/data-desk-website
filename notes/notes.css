@@ -106,7 +106,7 @@ p, ul, ol, h3, h4, h5, h6, pre, table {
 }
 
 .footnotes-list {
-  margin-left: auto;
+  margin-left: 0%;
 }
 
 div#main h2 {
