@@ -101,8 +101,12 @@ div#main a:hover{
   text-decoration: none;
 }
 
-p, h3, h4, h5, h6, pre, table {
+p, ul, ol, h3, h4, h5, h6, pre, table {
   margin-left: 40%;
+}
+
+.footnotes-list {
+  margin-left: auto;
 }
 
 div#main h2 {
