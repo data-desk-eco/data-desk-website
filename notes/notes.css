@@ -104,7 +104,7 @@ div#main a:hover{
   text-decoration: none;
 }
 
-p, ul, ol, h3, h4, h5, h6, pre, table {
+p, ul, ol, h3, h4, h5, h6, pre, table, iframe {
   margin-left: 40%;
 }
 
