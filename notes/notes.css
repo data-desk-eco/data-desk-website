@@ -80,9 +80,13 @@ div#header img {
 div#main ul > li {
   list-style-type: "> ";
   padding-inline-start: 1ch;
-  padding-bottom: 20px;
 }
 
+div#main ul > li,
+div#main ol > li {
+  padding-bottom: 20px;
+}
+  
 div#main h2 {
   float: left;
   width: 35%;
