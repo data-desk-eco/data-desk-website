@@ -116,24 +116,8 @@ ol.footnotes-list, ol.footnotes-list > li > p {
   margin-left: 0%;
 }
 
-div#main h2 {
-  margin-top: 30px;
-}
-
-div#main > h2:nth-of-type(1) {
-  margin-top: 0px;
-}
-
-div#main > h2+p {
-  margin-top: 45px;
-}
-
 div#main p {
   margin-bottom: 24px;
-}
-
-div#main > p:nth-of-type(1) {
-  margin-top: 38px;
 }
 
 div#main img {
