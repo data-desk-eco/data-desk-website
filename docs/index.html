@@ -23,6 +23,13 @@
     const main = document.querySelector("main");
     const { default: define } = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
     new Runtime().module(define, Inspector.into("#main"));
+
+    new Runtime().module(define, name => {
+      if (name !== "title") {
+        return Inspector.into("#main")
+      }
+    });
+    
     document.querySelector("#title").innerHTML = params.get("title");
     document.querySelector("#date").innerHTML = params.get("date");
   </script>
