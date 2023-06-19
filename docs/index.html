@@ -21,10 +21,9 @@
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     var params = new URLSearchParams(window.location.search);
     const main = document.querySelector("main");
-    const { default: define } = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
+    const notebook = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
 
-    new Runtime().module(define, name => {
-      console.log(name);
+    new Runtime().module(notebook.default, name => {
       if (name === "title") {
         return Inspector.into("#title")();
       } else if (name === "date") {
@@ -33,5 +32,8 @@
         return Inspector.into("#main")();
       }
     });
+
+    const module = new Runtime().module(notebook.default);
+    document.title = `Data Desk notes / ${await module.value("title").then(d => d.innerHTML)}`;
   </script>
 </html>
