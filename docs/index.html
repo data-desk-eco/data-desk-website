@@ -4,6 +4,6 @@
   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
   var params = new URLSearchParams(window.location.search);
   const main = document.querySelector("main");
-  const notebook = await import(`https://api.observablehq.com/d/${params.get("id")}@${params.get("v")}.js?v=3&api_key=${params.get("api_key")}`);
-  new Runtime().module(notebook.define, Inspector.into("#notebook"));
+  const notebook { default: define } = await import(`https://api.observablehq.com/d/${params.get("id")}@${params.get("v")}.js?v=3&api_key=${params.get("api_key")}`);
+  new Runtime().module(notebook, Inspector.into("#notebook"));
 </script>
