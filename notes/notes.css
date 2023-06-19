@@ -58,6 +58,7 @@ div#footer, section.footnotes {
 }
 
 div#header h1 {
+  text-transform: uppercase;
   float: left;
   clear: left;
   width: 35%;
