@@ -1,9 +1,27 @@
-<div id="notebook"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-<script type="module">
-  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-  var params = new URLSearchParams(window.location.search);
-  const main = document.querySelector("main");
-  const { default: define } = await import(`https://api.observablehq.com/d/${params.get("id")}@${params.get("version")}.js?v=3&api_key=${params.get("api_key")}`);
-  new Runtime().module(define, Inspector.into("#notebook"));
-</script>
+<html>
+  <head>
+    <title>Data Desk notes</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="../notes/notes.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  </head>
+  <body>
+    <div id="header">
+      <img src="../assets/logo.png" alt="Data Desk" />
+      <span id="date"></span>
+      <h1 id="title"></h1>
+    </div>
+    <div id="main"></div>
+    <div id="footer">
+      This document is confidential and has been produced by <b>Data Desk</b> for a client. It should only be shared directly with trusted third parties. If used in publications, communications products or external correspondence, material from this document should only be attributed to <b>Data Desk</b> with our explicit consent.
+    </div>
+  </body>
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    var params = new URLSearchParams(window.location.search);
+    const main = document.querySelector("main");
+    const { default: define } = await import(`https://api.observablehq.com/d/${params.get("id")}@${params.get("version")}.js?v=3&api_key=${params.get("api_key")}`);
+    new Runtime().module(define, Inspector.into("#main"));
+  </script>
+</html>
