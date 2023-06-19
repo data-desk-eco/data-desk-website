@@ -3,6 +3,6 @@
 <script type="module">
   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
   var params = new URLSearchParams(window.location.search);
-  import define from `https://api.observablehq.com/d/${params.get("id")}@${params.get("v")}.js?v=3&api_key=${params.get("api_key")}`;
+  const define = await import(`https://api.observablehq.com/d/${params.get("id")}@${params.get("v")}.js?v=3&api_key=${params.get("api_key")}`);
   new Runtime().module(define, Inspector.into("#notebook"));
 </script>
