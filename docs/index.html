@@ -24,16 +24,16 @@
     const notebook = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
 
     new Runtime().module(notebook.default, name => {
-      if (name === "title") {
-        return Inspector.into("#title")();
-      } else if (name === "date") {
-        return Inspector.into("#date")();
-      } else {
+      if (!["title", "date"].includes(name)) {
         return Inspector.into("#main")();
       }
     });
 
     const module = new Runtime().module(notebook.default);
-    document.title = `Data Desk notes / ${await module.value("title").then(d => d.innerHTML)}`;
+    const raw_title = await module.value("title").then(d => d.innerHTML);
+    const raw_date = await module.value("date").then(d => d.innerHTML);
+    document.title = `Data Desk notes / ${raw_title}`;
+    document.querySelector("#title").innerHTML = raw_title;
+    document.querySelector("#date").innerHTML = raw_date;
   </script>
 </html>
