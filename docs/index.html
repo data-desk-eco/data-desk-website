@@ -22,15 +22,16 @@
     var params = new URLSearchParams(window.location.search);
     const main = document.querySelector("main");
     const { default: define } = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
-    new Runtime().module(define, Inspector.into("#main"));
 
     new Runtime().module(define, name => {
-      if (name !== "title") {
-        return Inspector.into("#main")
+      console.log(name);
+      if (name === "title") {
+        return Inspector.into("#title")();
+      } else if (name === "date") {
+        return Inspector.into("#date")();
+      } else {
+        return Inspector.into("#main")();
       }
     });
-    
-    document.querySelector("#title").innerHTML = params.get("title");
-    document.querySelector("#date").innerHTML = params.get("date");
   </script>
 </html>
