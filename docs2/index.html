@@ -38,7 +38,7 @@
     document.querySelector("#title").innerHTML = raw_title;
     document.querySelector("#date").innerHTML = raw_date;
 
-    if (!arams.get("pub") !== "true") {
+    if (!params.get("pub")) {
       document.querySelector("#footer").innerHTML = `This document is confidential and has been produced by <b>Data Desk</b> for a client. It should only be shared directly with trusted third parties. If used in publications, communications products or external correspondence, material from this document should only be attributed to <b>Data Desk</b> with our explicit consent.`;
     }
   </script>
