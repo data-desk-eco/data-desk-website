@@ -19,6 +19,10 @@
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
     var params = new URLSearchParams(window.location.search);
     const main = document.querySelector("main");
+    if(!params.get("api_key")) {
+      const api_key = window.prompt("Please enter the password for this notebook");
+      params.set("api_key", api_key);
+    }
     const notebook = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
 
     new Runtime().module(notebook.default, name => {
@@ -34,7 +38,7 @@
     document.querySelector("#title").innerHTML = raw_title;
     document.querySelector("#date").innerHTML = raw_date;
 
-    if (params.get("pub") === "false") {
+    if (!params.get("pub")) {
       document.querySelector("#footer").innerHTML = `This document is confidential and has been produced by <b>Data Desk</b> for a client. It should only be shared directly with trusted third parties. If used in publications, communications products or external correspondence, material from this document should only be attributed to <b>Data Desk</b> with our explicit consent.`;
     }
   </script>
