@@ -21,7 +21,7 @@
     const main = document.querySelector("main");
     if(!params.get("api_key")) {
       const api_key = window.prompt("Please enter the password for this notebook provided to you separately", "Notebook password");
-      paras.set("api_key", api_key);
+      params.set("api_key", api_key);
     }
     const notebook = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
 
