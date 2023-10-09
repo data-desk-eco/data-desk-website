@@ -20,7 +20,7 @@
     var params = new URLSearchParams(window.location.search);
     const main = document.querySelector("main");
     if(!params.get("api_key")) {
-      const api_key = window.prompt("Please enter the password for this notebook");
+      const api_key = window.prompt("Please enter the key for this notebook");
       params.set("api_key", api_key);
     }
     const notebook = await import(`https://api.observablehq.com/d/${params.get("id")}.js?v=3&api_key=${params.get("api_key")}`);
