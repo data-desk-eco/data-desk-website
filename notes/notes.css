@@ -113,7 +113,11 @@ div#main a:hover{
   text-decoration: none;
 }
 
-p, ul, ol, h3, h4, h5, h6, pre, table {
+svg {
+  background: black;
+}
+
+p, ul, ol, h3, h4, h5, h6, pre, table, svg {
   margin-left: 40%;
 }
 
